@@ -5,11 +5,9 @@ namespace ApiControladorVendas.Dominio.Vendas
 {
     public class Venda
     {
-        public Venda(int idCliente, DateTime dataVenda, decimal totalVenda, string observacoes)
+        public Venda(int idCliente, string observacoes)
         {
             IdCliente = idCliente;
-            DataVenda = dataVenda;
-            TotalVenda = totalVenda;
             Observacoes = observacoes;
         }
 
@@ -21,19 +19,29 @@ namespace ApiControladorVendas.Dominio.Vendas
 
         //
 
-        public virtual ICollection<ItemVenda> ItensVendas { get; private set; }
+        public virtual List<ItemVenda> ItensVendas { get; private set; }
         public virtual Cliente Cliente { get; private set; }
 
-        public static Venda Novo(int idCliente, DateTime dataVenda, decimal totalVenda, string observacoes)
+        public static Venda Novo(int idCliente, string observacoes)
         {
-            return new Venda(idCliente, dataVenda, totalVenda, observacoes);
+            return new Venda(idCliente, observacoes);
         }
-        public  void Alterar(int idCliente, DateTime dataVenda, decimal totalVenda, string observacoes)
+        public void Alterar(int idCliente, string observacoes)
         {
             IdCliente = idCliente;
-            DataVenda = dataVenda;
-            TotalVenda = totalVenda;
             Observacoes = observacoes;
+        }
+
+        public void InserirItemVenda(ItemVenda itemVenda)
+        {
+            itemVenda.CalcularSubtotal();
+
+            this.ItensVendas.Add(itemVenda);
+            _calcularTotalVenda();
+        }
+        private void _calcularTotalVenda()
+        {
+            TotalVenda = ItensVendas.Sum(x => x.Subtotal);
         }
     }
 }

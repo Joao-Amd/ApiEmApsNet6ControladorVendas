@@ -11,14 +11,16 @@ namespace ApiControladorVendas.Aplicacao.ItemVendas
     public class AplicItemVenda : IAplicItemVenda
     {
         private readonly IRepCad<ItemVenda> _repItemVenda;
+        private readonly IRepCad<Venda> _repVenda;
         private readonly IRepCad<Item> _repItem;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AplicItemVenda(IRepCad<ItemVenda> repItemVenda, IUnitOfWork unitOfWork, IRepCad<Item> repItem)
+        public AplicItemVenda(IRepCad<ItemVenda> repItemVenda, IUnitOfWork unitOfWork, IRepCad<Item> repItem, IRepCad<Venda> repVenda)
         {
             _repItemVenda = repItemVenda;
             _unitOfWork = unitOfWork;
             _repItem = repItem;
+            _repVenda = repVenda;
         }
         public ItemVendaViewModel Alterar(int id, ItemVendaDto dto)
         {
@@ -40,15 +42,19 @@ namespace ApiControladorVendas.Aplicacao.ItemVendas
             _unitOfWork.Persistir();
         }
 
-        public void Inserir(ItemVendaDto dto, Venda venda)
+        public void Inserir(int idVenda, ItemVendaDto dto)
         {
             try
             {
                 var item = _repItem.GetById(dto.IdItem);
 
-                var itemVenda = ItemVenda.Novo(venda, item, dto.Quantidade);
+                var venda = _repVenda.GetById(idVenda);
 
-                _repItemVenda.Inserir(itemVenda);
+                var itemVenda = ItemVenda.Novo(item, dto.Quantidade);
+
+                venda.InserirItemVenda(itemVenda);
+
+                _repVenda.Inserir(venda);
 
                 _unitOfWork.Persistir();
             }

@@ -5,9 +5,8 @@ namespace ApiControladorVendas.Dominio.ItemVendas
 {
     public class ItemVenda
     {
-        public ItemVenda(Venda venda, Item item, int quantidade)
+        public ItemVenda(Item item, int quantidade)
         {
-            IdVenda = venda.Id;
             IdItem = item.Id;
             Quantidade = quantidade;
             Item = item;
@@ -24,9 +23,9 @@ namespace ApiControladorVendas.Dominio.ItemVendas
         public virtual Item Item { get; private set; }
         public virtual Venda Venda { get; private set; }
 
-        public static ItemVenda Novo(Venda venda, Item item, int quantidade)
+        public static ItemVenda Novo(Item item, int quantidade)
         {
-            return new ItemVenda(venda, item, quantidade);
+            return new ItemVenda(item, quantidade);
         }
         public void Alterar(Item item, int quantidade) 
         {

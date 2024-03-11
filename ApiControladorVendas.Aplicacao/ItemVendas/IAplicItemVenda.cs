@@ -6,7 +6,7 @@ namespace ApiControladorVendas.Aplicacao.ItemVendas
 {
     public interface IAplicItemVenda
     {
-        void Inserir(ItemVendaDto dto, Venda venda);
+        void Inserir(int idVenda, ItemVendaDto dto);
         void Deletar(int id);
         ItemVendaViewModel Alterar(int id, ItemVendaDto dto);
         ItemVendaViewModel Recuperar(int id);

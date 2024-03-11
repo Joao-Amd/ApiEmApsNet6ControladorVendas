@@ -9,6 +9,5 @@ namespace ApiControladorVendas.Aplicacao.Vendas
         List<VendaViewModel> RecuperarVenda();
         void Inserir(VendaDto dto);
         void Deletar(int id);
-        VendaViewModel Alterar(int id, VendaDto dto);
     }
 }
