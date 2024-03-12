@@ -5,7 +5,6 @@ using ApiControladorVendas.Dominio.ItemVendas;
 using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
-using Microsoft.EntityFrameworkCore.ValueGeneration;
 
 namespace ApiControladorVendas.Aplicacao.Vendas
 {
@@ -51,7 +50,7 @@ namespace ApiControladorVendas.Aplicacao.Vendas
             return VendaViewModel.Novo(_repVenda.GetById(id));
         }
 
-        public List<VendaViewModel> RecuperarVenda()
+        public List<VendaViewModel> RecuperarTodos()
         {
             var vendas = _repVenda.Get();
 

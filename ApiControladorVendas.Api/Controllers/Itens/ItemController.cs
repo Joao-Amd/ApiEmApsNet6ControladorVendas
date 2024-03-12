@@ -35,7 +35,7 @@ namespace ApiControladorVendas.Api.Controllers.Itens
         {
             try
             {
-                var item = _aplicItem.RecuperarItem();
+                var item = _aplicItem.RecuperarTodos();
                 return Ok(item);
             }
             catch (Exception)

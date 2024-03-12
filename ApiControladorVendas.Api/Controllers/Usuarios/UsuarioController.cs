@@ -32,7 +32,7 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
         {
             try
             {
-                var fornecedor = _aplicUsuario.RecuperarUsuario();
+                var fornecedor = _aplicUsuario.RecuperarTodos();
                 return Ok(fornecedor);
             }
             catch (Exception)

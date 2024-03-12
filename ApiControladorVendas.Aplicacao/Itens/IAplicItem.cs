@@ -8,7 +8,7 @@ namespace ApiControladorVendas.Aplicacao.Itens
     public interface IAplicItem
     {
         ItemViewModel Recuperar(int id);
-        List<ItemViewModel> RecuperarItem();
+        List<ItemViewModel> RecuperarTodos();
         void Inserir(ItemDto dto);
         void Deletar(int id);
         ItemViewModel Alterar(int id, ItemDto dto);

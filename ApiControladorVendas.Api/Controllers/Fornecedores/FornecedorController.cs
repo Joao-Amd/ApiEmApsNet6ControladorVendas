@@ -33,7 +33,7 @@ namespace ApiControladorVendas.Api.Controllers.Fornecedores
         {
             try
             {
-                var fornecedor = _aplicFornecedor.RecuperarFornecedor();
+                var fornecedor = _aplicFornecedor.RecuperarTodos();
                 return Ok(fornecedor);
             }
             catch (Exception)

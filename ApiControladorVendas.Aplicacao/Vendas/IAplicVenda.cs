@@ -6,7 +6,7 @@ namespace ApiControladorVendas.Aplicacao.Vendas
     public interface IAplicVenda
     {
         VendaViewModel Recuperar(int id);
-        List<VendaViewModel> RecuperarVenda();
+        List<VendaViewModel> RecuperarTodos();
         void Inserir(VendaDto dto);
         void Deletar(int id);
     }

@@ -32,7 +32,7 @@ namespace ApiControladorVendas.Api.Controllers.Clientes
         {
             try
             {
-                var clientes = _aplicCliente.RecuperarClientes();
+                var clientes = _aplicCliente.RecuperarTodos();
                 return Ok(clientes);
             }
             catch (Exception)

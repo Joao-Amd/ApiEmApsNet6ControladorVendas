@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ItemVendas\" />
     <Folder Include="Controllers\Itens\" />
-    <Folder Include="Controllers\Vendas\" />
   </ItemGroup>
 
 </Project>

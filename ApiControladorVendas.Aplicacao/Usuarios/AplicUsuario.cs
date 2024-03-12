@@ -57,7 +57,7 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
             return UsuarioViewModel.Novo(usuario);
         }
 
-        public List<UsuarioViewModel> RecuperarUsuario()
+        public List<UsuarioViewModel> RecuperarTodos()
         {
             var usuario = _repUsuario.Get();
 

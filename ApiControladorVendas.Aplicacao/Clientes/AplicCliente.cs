@@ -63,7 +63,7 @@ namespace ApiControladorVendas.Aplicacao.Clientes
             return ClienteViewModel.Novo(cliente);
         }
 
-        public List<ClienteViewModel> RecuperarClientes()
+        public List<ClienteViewModel> RecuperarTodos()
         {
             var clientes = _repCliente.Get();
 
