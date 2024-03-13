@@ -43,5 +43,12 @@ namespace ApiControladorVendas.Dominio.Vendas
         {
             TotalVenda = ItensVendas.Sum(x => x.Subtotal);
         }
+        public void RemoverItemVenda(ItemVenda itemVenda)
+        {
+            itemVenda.CalcularSubtotal();
+
+            this.ItensVendas.Remove(itemVenda);
+            _calcularTotalVenda();
+        }
     }
 }

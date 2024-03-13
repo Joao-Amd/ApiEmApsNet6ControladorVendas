@@ -1,4 +1,5 @@
-﻿using ApiControladorVendas.Dominio.ItemVendas;
+﻿using ApiControladorVendas.Aplicacao.ItemVendas.Views;
+using ApiControladorVendas.Dominio.ItemVendas;
 using ApiControladorVendas.Dominio.Vendas;
 
 namespace ApiControladorVendas.Aplicacao.Vendas.Views
@@ -10,7 +11,7 @@ namespace ApiControladorVendas.Aplicacao.Vendas.Views
         public DateTime DataVenda { get; private set; }
         public decimal TotalVenda { get; private set; }
         public string Observacoes { get; private set; }
-        public virtual ICollection<ItemVenda> ItensVendas { get; private set; }
+        public List<ItemVendaViewModel> ItensVendas { get; set; }
 
         public static VendaViewModel Novo(Venda entidade)
         {
@@ -21,7 +22,7 @@ namespace ApiControladorVendas.Aplicacao.Vendas.Views
                 DataVenda = entidade.DataVenda,
                 TotalVenda = entidade.TotalVenda,
                 Observacoes = entidade.Observacoes,
-                ItensVendas = entidade.ItensVendas
+                ItensVendas = entidade != null? entidade.ItensVendas.Select(x => ItemVendaViewModel.Novo(x)).ToList() : null
             };
         }
     }

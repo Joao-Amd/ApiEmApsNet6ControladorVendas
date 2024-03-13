@@ -39,5 +39,10 @@ namespace ApiControladorVendas.Dominio.ItemVendas
         {
             Subtotal = Quantidade * Item.Preco;
         }
+        
+        public void Selecionar() 
+        {
+            Selecionado = true;
+        }
     }
 }

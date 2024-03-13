@@ -1,4 +1,5 @@
 ﻿using ApiControladorVendas.Aplicacao.ItemVendas;
+using ApiControladorVendas.Aplicacao.ItemVendas.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.ItemVendas
@@ -11,6 +12,46 @@ namespace ApiControladorVendas.Api.Controllers.ItemVendas
             _aplicItemVenda = aplicItemVenda;
         }
 
-        
+        [HttpGet("{id}")]
+        public IActionResult Recuperar(int id)
+        {
+            try
+            {
+                return Ok(_aplicItemVenda.Recuperar(id));
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }       
+
+        [HttpPost]
+        public IActionResult Inserir(int idVenda, ItemVendaDto dto)
+        {
+            try
+            {
+                _aplicItemVenda.Inserir(idVenda, dto);
+                return Ok("Registro inserido com sucesso!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _aplicItemVenda.Deletar(id);
+                return Ok("Registro deletado com sucesso!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
