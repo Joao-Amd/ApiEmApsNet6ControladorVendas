@@ -12,6 +12,8 @@ namespace ApiControladorVendas.Dominio.ItemVendas
             Item = item;
         }
 
+        protected ItemVenda() { }   
+
         public int Id { get; private set; }
         public int IdVenda { get; private set; }
         public int IdItem { get; private set; }
@@ -39,10 +41,6 @@ namespace ApiControladorVendas.Dominio.ItemVendas
         {
             Subtotal = Quantidade * Item.Preco;
         }
-        
-        public void Selecionar() 
-        {
-            Selecionado = true;
-        }
+       
     }
 }

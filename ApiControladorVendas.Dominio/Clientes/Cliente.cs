@@ -19,6 +19,8 @@
             Estado = estado;
         }
 
+        protected Cliente() { }
+
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Cpf { get; set; }

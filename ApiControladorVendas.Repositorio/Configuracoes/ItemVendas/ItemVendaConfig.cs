@@ -29,7 +29,7 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.ItemVendas
                 .IsRequired();
 
             builder.HasOne(x => x.Venda)
-                 .WithMany(y => y.ItensVendas)
+                 .WithMany()
                  .HasForeignKey(x => x.IdVenda);
 
             builder.HasOne(x => x.Item)

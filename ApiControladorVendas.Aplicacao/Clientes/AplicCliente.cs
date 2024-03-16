@@ -13,7 +13,7 @@ namespace ApiControladorVendas.Aplicacao.Clientes
         private readonly IRepCad<Cliente> _repCliente;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AplicCliente(IRepCad<Cliente> repCliente, IUnitOfWork unitOfWork, Contexto contexto)
+        public AplicCliente(IRepCad<Cliente> repCliente, IUnitOfWork unitOfWork)
         {
             _repCliente = repCliente;
             _unitOfWork = unitOfWork;

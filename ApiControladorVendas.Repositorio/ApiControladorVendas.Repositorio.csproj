@@ -15,8 +15,4 @@
     <ProjectReference Include="..\ApiControladorVendas.Dominio\ApiControladorVendas.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Sql\" />
-  </ItemGroup>
-
 </Project>

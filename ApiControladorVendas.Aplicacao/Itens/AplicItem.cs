@@ -64,7 +64,7 @@ namespace ApiControladorVendas.Aplicacao.Itens
             return ItemViewModel.Novo(item);
         }
 
-        public List<ItemViewModel> RecuperarTodos()
+        public List<ItemViewModel> RecuperarItens()
         {
             var item = _repItem.Get();
 

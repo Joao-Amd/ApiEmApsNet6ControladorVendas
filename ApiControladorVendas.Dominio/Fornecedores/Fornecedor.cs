@@ -19,6 +19,8 @@
             Estado = estado;
         }
 
+        protected Fornecedor() { }
+
         public int Id { get; private set; }
         public string Nome { get;  set; }
         public string Cnpj { get; private set; }

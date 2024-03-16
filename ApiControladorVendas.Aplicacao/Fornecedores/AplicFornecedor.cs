@@ -60,7 +60,7 @@ namespace ApiControladorVendas.Aplicacao.Fornecedores
             return FornecedorViewModel.Novo(fornecedor);
         }
 
-        public List<FornecedorViewModel> RecuperarFornecedor()
+        public List<FornecedorViewModel> RecuperarFornecedores()
         {
             var fornecedor = _repFornecedor.Get();
 

@@ -6,6 +6,7 @@ using ApiControladorVendas.Aplicacao.Itens.Dtos;
 
 namespace ApiControladorVendas.Api.Controllers.Itens
 {
+    [Route("Item")]
     public class ItemController : Controller
     {
         private readonly IAplicItem _aplicItem;
@@ -15,7 +16,7 @@ namespace ApiControladorVendas.Api.Controllers.Itens
         }
 
         [HttpGet("{Id}")]
-        public IActionResult RecuperarPorId(int id)
+        public IActionResult Recuperar(int id)
         {
             try
             {
@@ -29,13 +30,13 @@ namespace ApiControladorVendas.Api.Controllers.Itens
             }
         }
 
-        [HttpGet("Recuperar/Todos/Itens")]
+        [HttpGet("Recuperar/Itens")]
 
         public IActionResult RecuperarItem()
         {
             try
             {
-                var item = _aplicItem.RecuperarTodos();
+                var item = _aplicItem.RecuperarItens();
                 return Ok(item);
             }
             catch (Exception)

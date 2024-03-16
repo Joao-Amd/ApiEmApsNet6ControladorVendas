@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.Vendas
 {
+    [Route("Venda")]
     public class VendaController : Controller
     {
         private readonly IAplicVenda _aplicVenda;
@@ -12,8 +13,8 @@ namespace ApiControladorVendas.Api.Controllers.Vendas
             _aplicVenda = aplicVenda;
         }
 
-        [HttpGet]
-        public IActionResult RecuperarTodos()
+        [HttpGet("Recuperar/Vendas")]
+        public IActionResult Recuperar()
         {
             try
             {

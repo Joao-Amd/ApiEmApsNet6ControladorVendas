@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.ItemVendas
 {
+    [Route("ItemVenda")]
     public class ItemVendaController : Controller
     {
         private readonly IAplicItemVenda _aplicItemVenda;

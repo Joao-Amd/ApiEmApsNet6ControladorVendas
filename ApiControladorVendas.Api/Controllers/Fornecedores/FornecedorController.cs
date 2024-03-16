@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.Fornecedores
 {
+    [Route("Fornecedor")]
     public class FornecedorController : Controller
     {
 
@@ -13,7 +14,7 @@ namespace ApiControladorVendas.Api.Controllers.Fornecedores
             _aplicFornecedor = aplicCliente;
         }
         [HttpGet("{Id}")]
-        public IActionResult RecuperarPorId(int id)
+        public IActionResult Recuperar(int id)
         {
             try
             {
@@ -27,13 +28,13 @@ namespace ApiControladorVendas.Api.Controllers.Fornecedores
             }
         }
 
-        [HttpGet("Recuperar/Todos/Forncedores")]
+        [HttpGet("Recuperar/Forncedores")]
 
         public IActionResult RecuperarClientes()
         {
             try
             {
-                var fornecedor = _aplicFornecedor.RecuperarTodos();
+                var fornecedor = _aplicFornecedor.RecuperarFornecedores();
                 return Ok(fornecedor);
             }
             catch (Exception)

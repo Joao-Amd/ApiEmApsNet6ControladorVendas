@@ -11,6 +11,8 @@ namespace ApiControladorVendas.Dominio.Vendas
             Observacoes = observacoes;
         }
 
+        protected Venda() { }
+
         public int Id { get; private set; }
         public int IdCliente { get; private set; }
         public DateTime DataVenda { get; private set; }

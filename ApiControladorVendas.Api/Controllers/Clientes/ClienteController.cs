@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.Clientes
 {
+    [Route("Cliente")]
     public class ClienteController : Controller
     {
         private readonly IAplicCliente _aplicCliente;
@@ -12,7 +13,7 @@ namespace ApiControladorVendas.Api.Controllers.Clientes
             _aplicCliente = aplicCliente;
         }
         [HttpGet("{Id}")]
-        public IActionResult RecuperarPorId(int id)
+        public IActionResult Recuperar(int id)
         {
             try
             {
@@ -26,7 +27,7 @@ namespace ApiControladorVendas.Api.Controllers.Clientes
             }
         }
 
-        [HttpGet("Recuperar/Todos/Clientes")]
+        [HttpGet("Recuperar/Clientes")]
 
         public IActionResult RecuperarClientes()
         {

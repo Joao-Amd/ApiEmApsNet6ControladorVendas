@@ -1,6 +1,16 @@
 using ApiControladorVendas.Aplicacao.Clientes;
+using ApiControladorVendas.Aplicacao.Fornecedores;
+using ApiControladorVendas.Aplicacao.ItemVendas;
+using ApiControladorVendas.Aplicacao.Itens;
+using ApiControladorVendas.Aplicacao.Usuarios;
+using ApiControladorVendas.Aplicacao.Vendas;
 using ApiControladorVendas.Clientes;
 using ApiControladorVendas.Dominio.Clientes;
+using ApiControladorVendas.Dominio.Fornecedores;
+using ApiControladorVendas.Dominio.ItemVendas;
+using ApiControladorVendas.Dominio.Itens;
+using ApiControladorVendas.Dominio.Usuarios;
+using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.Contextos;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
@@ -35,7 +45,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IAplicCliente, AplicCliente>();
+builder.Services.AddScoped<IAplicFornecedor, AplicFornecedor>();
+builder.Services.AddScoped<IAplicItemVenda, AplicItemVenda>();
+builder.Services.AddScoped<IAplicItem, AplicItem>();
+builder.Services.AddScoped<IAplicUsuario, AplicUsuario>();
+builder.Services.AddScoped<IAplicVenda, AplicVenda>();
 builder.Services.AddScoped<IRepCad<Cliente>, RepCad<Cliente>>();
+builder.Services.AddScoped<IRepCad<Fornecedor>, RepCad<Fornecedor>>();
+builder.Services.AddScoped<IRepCad<ItemVenda>, RepCad<ItemVenda>>();
+builder.Services.AddScoped<IRepCad<Item>, RepCad<Item>>();
+builder.Services.AddScoped<IRepCad<Usuario>, RepCad<Usuario>>();
+builder.Services.AddScoped<IRepCad<Venda>, RepCad<Venda>>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var connectionString = builder.Configuration.GetConnectionString("DataBase");
