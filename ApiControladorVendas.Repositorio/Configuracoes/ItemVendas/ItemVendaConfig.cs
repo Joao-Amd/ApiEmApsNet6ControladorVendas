@@ -13,7 +13,7 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.ItemVendas
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.IdVenda)
-                .HasColumnName("idVenda")
+                .HasColumnName("idvenda")
                 .IsRequired();
 
             builder.Property(x => x.IdItem)
@@ -31,10 +31,6 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.ItemVendas
             builder.HasOne(x => x.Venda)
                  .WithMany()
                  .HasForeignKey(x => x.IdVenda);
-
-            builder.HasOne(x => x.Item)
-                .WithMany()
-                .HasForeignKey(x => x.IdItem);
         }
     }
 }

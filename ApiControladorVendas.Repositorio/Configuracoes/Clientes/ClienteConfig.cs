@@ -60,6 +60,9 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Clientes
             builder.Property(x => x.Estado)
                    .HasColumnName("estado")
                    .IsRequired();
+
+
+
         }
     }
 }

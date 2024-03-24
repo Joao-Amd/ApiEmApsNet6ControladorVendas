@@ -8,7 +8,7 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.itens
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {
-            builder.ToTable("item");
+            builder.ToTable("itens");
 
             builder.HasKey(x => x.Id);
 

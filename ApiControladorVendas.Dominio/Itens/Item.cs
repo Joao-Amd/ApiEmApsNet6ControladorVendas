@@ -1,4 +1,5 @@
 ﻿using ApiControladorVendas.Dominio.Fornecedores;
+using ApiControladorVendas.Dominio.ItemVendas;
 
 namespace ApiControladorVendas.Dominio.Itens
 {
@@ -24,8 +25,10 @@ namespace ApiControladorVendas.Dominio.Itens
         //
 
         public virtual Fornecedor Fornecedor { get; private set; }
+        public virtual ICollection<ItemVenda> ItensVenda { get; private set; }
 
-        public static Item Novo(string descricao, decimal preco, int quantidade, Fornecedor fornecedor)
+
+    public static Item Novo(string descricao, decimal preco, int quantidade, Fornecedor fornecedor)
         {
             return new Item(descricao, preco, quantidade, fornecedor);
         }

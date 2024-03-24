@@ -1,4 +1,6 @@
-﻿namespace ApiControladorVendas.Dominio.Clientes
+﻿using ApiControladorVendas.Dominio.Vendas;
+
+namespace ApiControladorVendas.Dominio.Clientes
 {
     public class Cliente
     {
@@ -34,6 +36,7 @@
         public string Cidade { get; set; }
         public string Estado { get; set; }
 
+        public virtual Venda Venda { get; set; }
         public static Cliente Novo(string nome, string cpf, string email, string celular,
                    string cep, string endereco, int numero, string complemento,
                    string bairro, string cidade, string estado)

@@ -8,7 +8,7 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Vendas
     {
         public void Configure(EntityTypeBuilder<Venda> builder)
         {
-            builder.ToTable("item");
+            builder.ToTable("vendas");
 
             builder.HasKey(x => x.Id);
 
@@ -35,7 +35,6 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Vendas
             builder.HasOne(x => x.Cliente)
                 .WithMany()
                 .HasForeignKey(x => x.IdCliente);
-
         }
     }
 }
