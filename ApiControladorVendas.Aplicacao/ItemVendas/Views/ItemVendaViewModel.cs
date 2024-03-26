@@ -15,17 +15,20 @@ namespace ApiControladorVendas.Aplicacao.ItemVendas.Views
         public virtual Venda Venda { get; private set; }
 
 
-        public static ItemVendaViewModel Novo(ItemVenda itemVenda)
+        public static ItemVendaViewModel Novo(ItemVenda entidade)
         {
+            if (entidade == null)
+                return null;
+
             return new ItemVendaViewModel 
             { 
-                Id = itemVenda.Id,
-                IdItem = itemVenda.IdItem,
-                IdVenda = itemVenda.IdVenda,
-                Quantidade = itemVenda.Quantidade,
-                Subtotal = itemVenda.Subtotal,
-                Item = itemVenda.Item,
-                Venda = itemVenda.Venda
+                Id = entidade.Id,
+                IdItem = entidade.IdItem,
+                IdVenda = entidade.IdVenda,
+                Quantidade = entidade.Quantidade,
+                Subtotal = entidade.Subtotal,
+                Item = entidade.Item,
+                Venda = entidade.Venda
            };
         }
     }

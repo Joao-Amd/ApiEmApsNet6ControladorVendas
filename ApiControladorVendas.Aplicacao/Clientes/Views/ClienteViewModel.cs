@@ -19,6 +19,9 @@ namespace ApiControladorVendas.Aplicacao.Clientes.Views
 
         public static ClienteViewModel Novo(Cliente entidade)
         {
+            if (entidade == null)
+                return null;
+
             return new ClienteViewModel
             {
                 Id = entidade.Id,

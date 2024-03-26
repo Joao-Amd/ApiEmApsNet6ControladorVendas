@@ -1,6 +1,7 @@
 ﻿using ApiControladorVendas.Aplicacao.Itens.Dtos;
 using ApiControladorVendas.Aplicacao.Itens.Views;
 using ApiControladorVendas.Dominio.Fornecedores;
+using ApiControladorVendas.Dominio.ItemVendas;
 using ApiControladorVendas.Dominio.Itens;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
@@ -23,7 +24,13 @@ namespace ApiControladorVendas.Aplicacao.Itens
         {
             var item = _repItem.GetById(id);
 
+            if (item == null)
+                throw new Exception("Erro: Produto não encontrado!");
+
             var fornecedor =  _repFornecedor.GetById(dto.IdFornecedor);
+
+            if (fornecedor == null)
+                throw new Exception("Erro: Fornecedor não encontrado!");
 
             item.Alterar(dto.Descricao, dto.Preco, dto.Quantidade, fornecedor);
 
@@ -34,6 +41,11 @@ namespace ApiControladorVendas.Aplicacao.Itens
 
         public void Deletar(int id)
         {
+            var item = _repItem.GetById(id);
+
+            if (item == null)
+                throw new Exception("Erro: Produto não encontrado!");
+
             _repItem.Delete(id);
 
             _unitOfWork.Persistir();

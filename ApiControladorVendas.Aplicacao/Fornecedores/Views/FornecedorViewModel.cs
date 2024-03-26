@@ -20,6 +20,9 @@ namespace ApiControladorVendas.Aplicacao.Fornecedores.Views
 
         public static FornecedorViewModel Novo(Fornecedor entidade)
         {
+            if (entidade == null)
+                return null;
+
             return new FornecedorViewModel
             {
                 Id = entidade.Id,

@@ -1,5 +1,6 @@
 ﻿using ApiControladorVendas.Aplicacao.Usuarios.Dtos;
 using ApiControladorVendas.Aplicacao.Usuarios.Views;
+using ApiControladorVendas.Dominio.Fornecedores;
 using ApiControladorVendas.Dominio.Usuarios;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
@@ -20,6 +21,9 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
         {
             var usuario = _repUsuario.GetById(id);
 
+            if (usuario == null)
+                throw new Exception("Erro: Usuario não encontrado!");
+
             usuario.Alterar(dto.Nome, dto.Email, dto.Senha, dto.NivelAcesso);
 
             _unitOfWork.Persistir();
@@ -29,6 +33,11 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
 
         public void Deletar(int id)
         {
+            var usuario = _repUsuario.GetById(id);
+
+            if (usuario == null)
+                throw new Exception("Erro: Usuario não encontrado!");
+
             _repUsuario.Delete(id);
 
             _unitOfWork.Persistir();

@@ -13,6 +13,9 @@ namespace ApiControladorVendas.Aplicacao.Itens.Views
 
         public static ItemViewModel Novo(Item entidade)
         {
+            if (entidade == null)
+                return null;
+
             return new ItemViewModel
             {
                 Descricao = entidade.Descricao,

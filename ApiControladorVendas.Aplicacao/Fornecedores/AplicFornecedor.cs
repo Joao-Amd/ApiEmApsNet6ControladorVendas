@@ -21,6 +21,9 @@ namespace ApiControladorVendas.Aplicacao.Fornecedores
         {
             var fornecedor = _repFornecedor.GetById(id);
 
+            if (fornecedor == null)
+                throw new Exception("Erro: Fornecedor não encontrado!");
+
             fornecedor.Alterar(dto.Nome, dto.Cnpj, dto.Email, dto.Celular, dto.Cep, dto.Endereco,
                             dto.Numero, dto.Complemento, dto.Bairro, dto.Cidade, dto.Estado);
 
@@ -31,7 +34,12 @@ namespace ApiControladorVendas.Aplicacao.Fornecedores
 
         public void Deletar(int id) 
         {
-            _repFornecedor.Delete(id);
+            var fornecedor = _repFornecedor.GetById(id);
+
+            if (fornecedor == null)
+                throw new Exception("Erro: Fornecedor não encontrado!");
+
+            _repFornecedor.Delete(fornecedor.Id);
 
             _unitOfWork.Persistir();
         }

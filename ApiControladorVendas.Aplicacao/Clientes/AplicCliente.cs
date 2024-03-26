@@ -22,7 +22,10 @@ namespace ApiControladorVendas.Aplicacao.Clientes
         {
             var cliente = _repCliente.GetById(id);
 
-             cliente.Alterar(dto.Nome, dto.Cpf, dto.Email, dto.Celular, dto.Cep, dto.Endereco,
+            if (cliente == null)
+                throw new Exception("Erro: Cliente não encontrado!");
+
+            cliente.Alterar(dto.Nome, dto.Cpf, dto.Email, dto.Celular, dto.Cep, dto.Endereco,
                              dto.Numero, dto.Complemento, dto.Bairro, dto.Cidade, dto.Estado);
 
             _unitOfWork.Persistir();
@@ -32,7 +35,12 @@ namespace ApiControladorVendas.Aplicacao.Clientes
 
         public void Deletar(int id)
         {
-            _repCliente.Delete(id);
+            var cliente = _repCliente.GetById(id);
+
+            if (cliente == null)
+                throw new Exception("Erro: Cliente não encontrado!");
+
+            _repCliente.Delete(cliente.Id);
 
             _unitOfWork.Persistir();
         }
@@ -53,7 +61,6 @@ namespace ApiControladorVendas.Aplicacao.Clientes
 
                 throw new Exception(e.Message);
             }
-                
             
         }
 

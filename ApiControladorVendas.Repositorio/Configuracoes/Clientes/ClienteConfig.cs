@@ -14,12 +14,16 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Clientes
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
-                   .HasColumnName("Id")
+                   .HasColumnName("id")
                    .IsRequired();
 
             builder.Property(x => x.Nome)
                    .HasColumnName("nome")
                    .IsRequired();
+
+            builder.Property(x => x.Rg)
+                    .HasColumnName("rg")
+                    .IsRequired();
 
             builder.Property(x => x.Cpf)
                    .HasColumnName("cpf")
@@ -60,8 +64,6 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Clientes
             builder.Property(x => x.Estado)
                    .HasColumnName("estado")
                    .IsRequired();
-
-
 
         }
     }

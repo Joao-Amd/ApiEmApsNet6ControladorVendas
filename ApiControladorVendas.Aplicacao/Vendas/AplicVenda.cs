@@ -27,6 +27,8 @@ namespace ApiControladorVendas.Aplicacao.Vendas
         {
             var venda = _repVenda.GetById(id);
 
+            if (venda == null)
+                throw new Exception("Erro: Venda não encontrada!");
 
             foreach (var itemVenda in venda.ItensVendas)
             {
@@ -47,7 +49,12 @@ namespace ApiControladorVendas.Aplicacao.Vendas
 
         public VendaViewModel Recuperar(int id)
         {
-            return VendaViewModel.Novo(_repVenda.GetById(id));
+            var venda = _repVenda.GetById(id);
+
+            if (venda == null)
+                throw new Exception("Erro: Venda não encontrada!");
+
+            return VendaViewModel.Novo(venda);
         }
 
         public List<VendaViewModel> RecuperarTodos()

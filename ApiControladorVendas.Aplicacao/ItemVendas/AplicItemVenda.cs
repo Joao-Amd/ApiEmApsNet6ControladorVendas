@@ -28,6 +28,9 @@ namespace ApiControladorVendas.Aplicacao.ItemVendas
 
             var itemVenda = _repItemVenda.GetById(id);
 
+            if (itemVenda == null)
+                throw new Exception("Erro: Produto da venda não encontrado!");
+
             itemVenda.Alterar(item, dto.Quantidade);
 
             _unitOfWork.Persistir();
@@ -37,7 +40,12 @@ namespace ApiControladorVendas.Aplicacao.ItemVendas
 
         public void Deletar(int id)
         {
-            _repItemVenda.Delete(id);
+            var itemVenda = _repItemVenda.GetById(id);
+
+            if (itemVenda == null)
+                throw new Exception("Erro: Produto da venda não encontrado!");
+
+            _repItemVenda.Delete(itemVenda.Id);
 
             _unitOfWork.Persistir();
         }

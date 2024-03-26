@@ -2,7 +2,7 @@
 
 namespace ApiControladorVendas.Dominio.Clientes
 {
-    public class Cliente
+    public class Cliente 
     {
         public Cliente(string nome, string cpf, string email, string celular,
                    string cep, string endereco, int numero, string complemento,
@@ -26,6 +26,7 @@ namespace ApiControladorVendas.Dominio.Clientes
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Cpf { get; set; }
+        public string Rg { get; set; }
         public string Celular { get; set; }
         public string Cep { get; set; }
         public string Email { get; set; }
@@ -36,7 +37,7 @@ namespace ApiControladorVendas.Dominio.Clientes
         public string Cidade { get; set; }
         public string Estado { get; set; }
 
-        public virtual Venda Venda { get; set; }
+        //public virtual Venda Venda { get; set; }
         public static Cliente Novo(string nome, string cpf, string email, string celular,
                    string cep, string endereco, int numero, string complemento,
                    string bairro, string cidade, string estado)

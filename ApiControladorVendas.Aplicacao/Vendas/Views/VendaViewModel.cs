@@ -15,6 +15,9 @@ namespace ApiControladorVendas.Aplicacao.Vendas.Views
 
         public static VendaViewModel Novo(Venda entidade)
         {
+            if (entidade == null)
+                return null;
+
             return new VendaViewModel
             {
                 Id = entidade.Id,

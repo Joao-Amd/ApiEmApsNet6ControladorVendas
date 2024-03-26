@@ -16,72 +16,6 @@ namespace ApiControladorVendas.Repositorio.RepCad
             DbSet = Db.Set<T>();
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-            GC.SuppressFinalize(this);
-        }
-
-        public IQueryable<T> Where(Expression<Func<T, bool>> exp)
-        {
-            return DbSet.Where(exp);
-        }
-
-        public T Single()
-        {
-            return DbSet.Single();
-        }
-
-        public T Single(Expression<Func<T, bool>> exp)
-        {
-            return DbSet.Single(exp);
-        }
-
-        public T SingleOrDefault()
-        {
-            return DbSet.SingleOrDefault();
-        }
-
-        public T SingleOrDefault(Expression<Func<T, bool>> exp)
-        {
-            return DbSet.SingleOrDefault(exp);
-        }
-
-        public T First()
-        {
-            return DbSet.First();
-        }
-
-        public T First(Expression<Func<T, bool>> exp)
-        {
-            return DbSet.First(exp);
-        }
-
-        public T FirstOrDefault()
-        {
-            return DbSet.FirstOrDefault();
-        }
-
-        public T FirstOrDefault(Expression<Func<T, bool>> exp)
-        {
-            return DbSet.FirstOrDefault(exp);
-        }
-
-        public IQueryable<TCampos> Select<TCampos>(Expression<Func<T, TCampos>> campos)
-        {
-            return DbSet.Select(campos);
-        }
-
-        public IOrderedQueryable<T> OrderBy<TCampos>(Expression<Func<T, TCampos>> campos)
-        {
-            return DbSet.OrderBy(campos);
-        }
-
-        public IOrderedQueryable<T> OrderByDescending<TCampos>(Expression<Func<T, TCampos>> campos)
-        {
-            return DbSet.OrderByDescending(campos);
-        }
-
         public bool Any()
         {
             return DbSet.Any();
@@ -109,6 +43,11 @@ namespace ApiControladorVendas.Repositorio.RepCad
         public List<T> Get()
         {
             return DbSet.ToList();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

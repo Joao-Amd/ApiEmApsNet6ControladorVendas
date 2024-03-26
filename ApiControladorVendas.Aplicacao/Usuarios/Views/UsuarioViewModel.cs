@@ -13,6 +13,9 @@ namespace ApiControladorVendas.Aplicacao.Usuarios.Views
 
         public static UsuarioViewModel Novo(Usuario entidade)
         {
+            if (entidade == null)
+                return null;
+
             return new UsuarioViewModel
             {
                 Id = entidade.Id,
