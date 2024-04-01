@@ -1,11 +1,13 @@
 ﻿using ApiControladorVendas.Dominio.Clientes;
 using ApiControladorVendas.Dominio.Fornecedores;
+using ApiControladorVendas.Dominio.Identiys;
 using ApiControladorVendas.Dominio.ItemVendas;
 using ApiControladorVendas.Dominio.Itens;
 using ApiControladorVendas.Dominio.Usuarios;
 using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.Configuracoes.Clientes;
 using ApiControladorVendas.Repositorio.Configuracoes.Fornecedores;
+using ApiControladorVendas.Repositorio.Configuracoes.Identity;
 using ApiControladorVendas.Repositorio.Configuracoes.ItemVendas;
 using ApiControladorVendas.Repositorio.Configuracoes.itens;
 using ApiControladorVendas.Repositorio.Configuracoes.Usuarios;
@@ -34,6 +36,13 @@ namespace ApiControladorVendas.Repositorio.Contextos
             modelBuilder.ApplyConfiguration(new ItemConfig());
             modelBuilder.ApplyConfiguration(new UsuarioConfig());
             modelBuilder.ApplyConfiguration(new VendaConfig());
+
+
+            modelBuilder.ApplyConfiguration(new AspNetRoleConfig());
+            modelBuilder.ApplyConfiguration(new AspNetUserClaimConfig());
+            modelBuilder.ApplyConfiguration(new AspNetUserConfig());
+            modelBuilder.ApplyConfiguration(new AspNetUserLoginConfig());
+            modelBuilder.ApplyConfiguration(new AspNetUserRoleConfig());
         }
     }
 }
