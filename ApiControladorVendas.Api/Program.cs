@@ -14,6 +14,7 @@ using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.Contextos;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -62,6 +63,10 @@ var connectionString = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<Contexto>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<Contexto>()
+    .AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -71,6 +76,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

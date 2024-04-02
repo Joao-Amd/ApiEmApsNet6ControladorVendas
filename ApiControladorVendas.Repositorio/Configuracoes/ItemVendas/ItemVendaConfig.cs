@@ -16,9 +16,9 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.ItemVendas
                 .HasColumnName("id")
                 .IsRequired();
 
-            //builder.Property(x => x.IdVenda)
-            //    .HasColumnName("idvenda")
-            //    .IsRequired();
+            builder.Property(x => x.IdVenda)
+                .HasColumnName("idvenda")
+                .IsRequired();
 
             builder.Property(x => x.IdItem)
                 .HasColumnName("idproduto")
@@ -32,9 +32,9 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.ItemVendas
                 .HasColumnName("subtotal")
                 .IsRequired();
 
-            //builder.HasOne(x => x.Venda)
-            //     .WithMany()
-            //     .HasForeignKey(x => x.IdVenda);
+            builder.HasOne(x => x.Venda)
+                 .WithMany()
+                 .HasForeignKey(x => x.IdVenda);
         }
     }
 }

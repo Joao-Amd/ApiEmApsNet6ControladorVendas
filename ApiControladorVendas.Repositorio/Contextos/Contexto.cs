@@ -1,22 +1,21 @@
 ﻿using ApiControladorVendas.Dominio.Clientes;
 using ApiControladorVendas.Dominio.Fornecedores;
-using ApiControladorVendas.Dominio.Identiys;
 using ApiControladorVendas.Dominio.ItemVendas;
 using ApiControladorVendas.Dominio.Itens;
 using ApiControladorVendas.Dominio.Usuarios;
 using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.Configuracoes.Clientes;
 using ApiControladorVendas.Repositorio.Configuracoes.Fornecedores;
-using ApiControladorVendas.Repositorio.Configuracoes.Identity;
 using ApiControladorVendas.Repositorio.Configuracoes.ItemVendas;
 using ApiControladorVendas.Repositorio.Configuracoes.itens;
 using ApiControladorVendas.Repositorio.Configuracoes.Usuarios;
 using ApiControladorVendas.Repositorio.Configuracoes.Vendas;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiControladorVendas.Repositorio.Contextos
 {
-    public class Contexto : DbContext
+    public class Contexto : IdentityDbContext
     {
         public Contexto(DbContextOptions<Contexto> options)
             : base(options) { }
@@ -36,13 +35,6 @@ namespace ApiControladorVendas.Repositorio.Contextos
             modelBuilder.ApplyConfiguration(new ItemConfig());
             modelBuilder.ApplyConfiguration(new UsuarioConfig());
             modelBuilder.ApplyConfiguration(new VendaConfig());
-
-
-            modelBuilder.ApplyConfiguration(new AspNetRoleConfig());
-            modelBuilder.ApplyConfiguration(new AspNetUserClaimConfig());
-            modelBuilder.ApplyConfiguration(new AspNetUserConfig());
-            modelBuilder.ApplyConfiguration(new AspNetUserLoginConfig());
-            modelBuilder.ApplyConfiguration(new AspNetUserRoleConfig());
         }
     }
 }
