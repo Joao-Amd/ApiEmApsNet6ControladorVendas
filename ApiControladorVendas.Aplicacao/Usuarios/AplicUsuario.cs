@@ -47,7 +47,7 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
         {
             try
             {
-                var usuario = Usuario.Novo(dto.Nome, dto.Email, dto.Senha, dto.NivelAcesso);
+                var usuario = Usuario.Novo(dto.Nome, dto.Email, dto.Senha);
 
                 _repUsuario.Inserir(usuario);
 

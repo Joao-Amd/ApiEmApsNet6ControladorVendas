@@ -10,12 +10,11 @@ using ApiControladorVendas.Repositorio.Configuracoes.ItemVendas;
 using ApiControladorVendas.Repositorio.Configuracoes.itens;
 using ApiControladorVendas.Repositorio.Configuracoes.Usuarios;
 using ApiControladorVendas.Repositorio.Configuracoes.Vendas;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiControladorVendas.Repositorio.Contextos
 {
-    public class Contexto : IdentityDbContext
+    public class Contexto : DbContext
     {
         public Contexto(DbContextOptions<Contexto> options)
             : base(options) { }
