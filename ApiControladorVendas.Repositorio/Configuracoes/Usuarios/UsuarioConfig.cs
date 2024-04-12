@@ -24,13 +24,15 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Usuarios
                 .HasColumnName("email")
                 .IsRequired();
 
-            builder.Property(x => x.Senha)
-                .HasColumnName("senha")
+            builder.Property(x => x.SenhaHash)
+                .HasColumnName("senhahash")
                 .IsRequired();
 
-            builder.Property(x => x.NivelAcesso)
-                .HasColumnName("nivelacesso")
+
+            builder.Property(x => x.SenhaSalt)
+                .HasColumnName("senhasalt")
                 .IsRequired();
+
         }
     }
 }

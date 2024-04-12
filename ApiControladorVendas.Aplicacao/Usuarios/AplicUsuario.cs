@@ -24,7 +24,7 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
             if (usuario == null)
                 throw new Exception("Erro: Usuario não encontrado!");
 
-            usuario.Alterar(dto.Nome, dto.Email, dto.Senha, dto.NivelAcesso);
+            usuario.Alterar(dto.Nome, dto.Email);
 
             _unitOfWork.Persistir();
 
@@ -47,7 +47,7 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
         {
             try
             {
-                var usuario = Usuario.Novo(dto.Nome, dto.Email, dto.Senha);
+                var usuario = Usuario.Novo(dto.Nome, dto.Email);
 
                 _repUsuario.Inserir(usuario);
 

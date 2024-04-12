@@ -20,21 +20,23 @@ namespace ApiControladorVendas.Dominio.Usuarios
 
 
 
-        public static  Usuario Novo(string nome, string email)
+        public static Usuario Novo(string nome, string email)
         {
             return new Usuario(nome, email);
         }
 
-        public void Alterar(string nome, string email, string senha)
+        public void Alterar(string nome, string email, byte[] senhaHash)
         {
             Nome = nome;
             Email = email;
+            SenhaHash = senhaHash;
         }
 
         public void AlterarSenha(byte[] senhaHash, byte[] senhaSalt)
         {
             SenhaHash = senhaHash;
             SenhaSalt = senhaSalt;
+
         }
     }
 }
