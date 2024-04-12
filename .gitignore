@@ -17,7 +17,6 @@ x64/
 bin
 obj
 packages
-.vs/*
 tmpRel/*.pdf
 *.user
 
@@ -138,3 +137,6 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+
+#quero tirar o .vs
+#.vs/
