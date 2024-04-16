@@ -1,4 +1,5 @@
 ﻿using ApiControladorVendas.Dominio.Account;
+using ApiControladorVendas.Dominio.Usuarios;
 using ApiControladorVendas.Repositorio.Contextos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -19,7 +20,7 @@ namespace ApiControladorVendas.Repositorio.Authentications
             _context = context;
             _configuration = configuration;
         }
-        public bool AuthenticateAsync(string email, string senha)
+        public bool Authenticate(string email, string senha)
         {
             var usuario = _context.Usuarios.Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
             if (usuario == null)
@@ -62,6 +63,11 @@ namespace ApiControladorVendas.Repositorio.Authentications
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public Usuario GetUserByEmail(string email)
+        {
+            return _context.Usuarios.Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
         }
 
         public bool UserExists(string email)

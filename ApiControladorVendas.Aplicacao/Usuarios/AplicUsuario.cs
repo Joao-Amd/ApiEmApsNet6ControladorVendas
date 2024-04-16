@@ -4,6 +4,8 @@ using ApiControladorVendas.Dominio.Fornecedores;
 using ApiControladorVendas.Dominio.Usuarios;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ApiControladorVendas.Aplicacao.Usuarios
 {
@@ -24,7 +26,9 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
             if (usuario == null)
                 throw new Exception("Erro: Usuario não encontrado!");
 
-            usuario.Alterar(dto.Nome, dto.Email);
+            byte[] senhaHash = Encoding.UTF8.GetBytes(dto.Senha);
+
+            usuario.Alterar(dto.Nome, dto.Email, senhaHash);
 
             _unitOfWork.Persistir();
 
@@ -43,15 +47,23 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
             _unitOfWork.Persistir();
         }
 
-        public void Inserir(UsuarioDto dto)
+        public UsuarioViewModel Inserir(UsuarioDto dto)
         {
             try
             {
+                using var hmac = new HMACSHA512();
+                byte[] senhaHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Senha));
+                byte[] senhaSalt = hmac.Key;
+
                 var usuario = Usuario.Novo(dto.Nome, dto.Email);
+
+                usuario.AlterarSenha(senhaHash, senhaSalt);
 
                 _repUsuario.Inserir(usuario);
 
                 _unitOfWork.Persistir();
+
+                return UsuarioViewModel.Novo(usuario);
             }
             catch (Exception e)
             {

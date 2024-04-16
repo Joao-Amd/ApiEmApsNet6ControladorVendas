@@ -47,7 +47,8 @@ namespace ApiControladorVendas.Repositorio.RepCad
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Db.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

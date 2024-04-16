@@ -7,7 +7,6 @@ namespace ApiControladorVendas.Aplicacao.Usuarios.Views
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Email { get; private set; }
-        public byte[] SenhaHash { get; private set; }
 
         public static UsuarioViewModel Novo(Usuario entidade)
         {
@@ -19,7 +18,6 @@ namespace ApiControladorVendas.Aplicacao.Usuarios.Views
                 Id = entidade.Id,
                 Nome = entidade.Nome,
                 Email = entidade.Email,
-                SenhaHash = entidade.SenhaHash,
             };
         }
     }

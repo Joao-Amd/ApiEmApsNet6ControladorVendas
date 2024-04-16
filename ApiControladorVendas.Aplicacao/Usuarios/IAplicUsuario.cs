@@ -7,7 +7,7 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
     {
         UsuarioViewModel Recuperar(int id);
         List<UsuarioViewModel> RecuperarTodos();
-        void Inserir(UsuarioDto dto);
+        UsuarioViewModel Inserir(UsuarioDto dto);
         void Deletar(int id);
         UsuarioViewModel Alterar(int id, UsuarioDto dto);
     }

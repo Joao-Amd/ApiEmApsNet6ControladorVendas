@@ -34,7 +34,7 @@ namespace ApiControladorVendas.Repositorio.UnitOfWork
                 RejectChanges();
                 throw new Exception(exp.Message);
             }
-            catch(ValidationException ex)
+            catch (ValidationException ex)
             {
                 RejectChanges();
                 throw new Exception(ex.Message);
@@ -44,24 +44,32 @@ namespace ApiControladorVendas.Repositorio.UnitOfWork
 
         public void RejectChanges()
         {
-            foreach (EntityEntry item in (from x in _contexto.ChangeTracker.Entries()
-                                          where x.State != EntityState.Unchanged
-                                          select x).ToList())
+            try
             {
-                switch (item.State)
+                foreach (EntityEntry item in (from x in _contexto.ChangeTracker.Entries()
+                                              where x.State != EntityState.Unchanged
+                                              select x).ToList())
                 {
-                    case EntityState.Modified:
-                        item.CurrentValues.SetValues(item.OriginalValues);
-                        item.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Added:
-                        item.State = EntityState.Detached;
-                        break;
-                    case EntityState.Deleted:
-                        item.State = EntityState.Unchanged;
-                        break;
+                    switch (item.State)
+                    {
+                        case EntityState.Modified:
+                            item.CurrentValues.SetValues(item.OriginalValues);
+                            item.State = EntityState.Unchanged;
+                            break;
+                        case EntityState.Added:
+                            item.State = EntityState.Detached;
+                            break;
+                        case EntityState.Deleted:
+                            item.State = EntityState.Unchanged;
+                            break;
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message); ;
+            }
+            
         }
 
     }
