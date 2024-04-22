@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendas.Dominio", "ApiControladorVendas.Dominio\ApiControladorVendas.Dominio.csproj", "{799A8099-B0B8-4D44-8BCE-AF7F7E949C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Dominio", "ApiControladorVendas.Dominio\ApiControladorVendas.Dominio.csproj", "{799A8099-B0B8-4D44-8BCE-AF7F7E949C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendas.Aplicacao", "ApiControladorVendas.Aplicacao\ApiControladorVendas.Aplicacao.csproj", "{5553E701-AD7F-437B-84BC-82ED91E0A914}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Aplicacao", "ApiControladorVendas.Aplicacao\ApiControladorVendas.Aplicacao.csproj", "{5553E701-AD7F-437B-84BC-82ED91E0A914}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendas.Repositorio", "ApiControladorVendas.Repositorio\ApiControladorVendas.Repositorio.csproj", "{49307B0F-DE3C-4040-983A-B4663A96AB4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Repositorio", "ApiControladorVendas.Repositorio\ApiControladorVendas.Repositorio.csproj", "{49307B0F-DE3C-4040-983A-B4663A96AB4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendas.Infra", "ApiControladorVendas.Infra\ApiControladorVendas.Infra.csproj", "{93938C11-369B-4022-9463-253E53D4F1C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Infra", "ApiControladorVendas.Infra\ApiControladorVendas.Infra.csproj", "{93938C11-369B-4022-9463-253E53D4F1C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendas.Api", "ApiControladorVendas.Api\ApiControladorVendas.Api.csproj", "{46FADF3A-CF0B-47FF-B896-BB6F931B9920}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Api", "ApiControladorVendas.Api\ApiControladorVendas.Api.csproj", "{46FADF3A-CF0B-47FF-B896-BB6F931B9920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendaUnitTests", "ApiControladorVendaUnitTests\ApiControladorVendaUnitTests.csproj", "{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{46FADF3A-CF0B-47FF-B896-BB6F931B9920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46FADF3A-CF0B-47FF-B896-BB6F931B9920}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46FADF3A-CF0B-47FF-B896-BB6F931B9920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
