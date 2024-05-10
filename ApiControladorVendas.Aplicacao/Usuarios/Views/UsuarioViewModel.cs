@@ -4,9 +4,9 @@ namespace ApiControladorVendas.Aplicacao.Usuarios.Views
 {
     public class UsuarioViewModel
     {
-        public int Id { get; private set; }
-        public string Nome { get; private set; }
-        public string Email { get; private set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
 
         public static UsuarioViewModel Novo(Usuario entidade)
         {

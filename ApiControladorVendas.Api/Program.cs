@@ -11,16 +11,19 @@ using ApiControladorVendas.Dominio.Fornecedores;
 using ApiControladorVendas.Dominio.ItemVendas;
 using ApiControladorVendas.Dominio.Itens;
 using ApiControladorVendas.Dominio.Usuarios;
+using ApiControladorVendas.Dominio.Usuarios.Validations;
 using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.Authentications;
 using ApiControladorVendas.Repositorio.Contextos;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Globalization;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -31,6 +34,7 @@ builder.Services.AddControllers()
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
+
 
 static void RemoverInterfacesNaoInjetaveis(IServiceCollection services)
 {
@@ -50,6 +54,9 @@ RemoverInterfacesNaoInjetaveis(builder.Services);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddValidatorsFromAssemblyContaining<Usuario>();
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddScoped<IAplicCliente, AplicCliente>();
 builder.Services.AddScoped<IAplicFornecedor, AplicFornecedor>();
@@ -151,5 +158,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+var cultureInfo = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 app.Run();

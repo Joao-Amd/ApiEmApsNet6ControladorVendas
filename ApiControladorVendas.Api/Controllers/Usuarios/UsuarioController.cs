@@ -1,10 +1,9 @@
 ﻿using ApiControladorVendas.Aplicacao.Usuarios;
-using ApiControladorVendas.Aplicacao.Usuarios.Dtos;
 using ApiControladorVendas.Dominio.Account;
 using ApiControladorVendas.Dominio.Authentications.ViewModels;
+using ApiControladorVendas.Dominio.Usuarios.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.IIS.Core;
 
 namespace ApiControladorVendas.Api.Controllers.Usuarios
 {
@@ -25,9 +24,6 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
         {
             try
             {
-                if (dto == null)
-                    throw new Exception("Dados  inválidos");
-
                 var emailExiste = _authenticateService.UserExists(dto.Email);
 
                 if (emailExiste)

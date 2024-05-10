@@ -18,8 +18,6 @@ namespace ApiControladorVendas.Dominio.Usuarios
         public byte[] SenhaHash { get; private set; }
         public byte[] SenhaSalt { get; private set; }
 
-
-
         public static Usuario Novo(string nome, string email)
         {
             return new Usuario(nome, email);
@@ -36,7 +34,6 @@ namespace ApiControladorVendas.Dominio.Usuarios
         {
             SenhaHash = senhaHash;
             SenhaSalt = senhaSalt;
-
         }
     }
 }

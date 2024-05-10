@@ -1,7 +1,6 @@
-﻿using ApiControladorVendas.Aplicacao.Usuarios.Dtos;
-using ApiControladorVendas.Aplicacao.Usuarios.Views;
-using ApiControladorVendas.Dominio.Fornecedores;
+﻿using ApiControladorVendas.Aplicacao.Usuarios.Views;
 using ApiControladorVendas.Dominio.Usuarios;
+using ApiControladorVendas.Dominio.Usuarios.Dtos;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
 using System.Security.Cryptography;
@@ -54,6 +53,9 @@ namespace ApiControladorVendas.Aplicacao.Usuarios
                 using var hmac = new HMACSHA512();
                 byte[] senhaHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Senha));
                 byte[] senhaSalt = hmac.Key;
+
+                if (dto.Senha == null)
+                    throw new Exception("A senha não pode ser nula.");
 
                 var usuario = Usuario.Novo(dto.Nome, dto.Email);
 

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Infra"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiControladorVendas.Api", "ApiControladorVendas.Api\ApiControladorVendas.Api.csproj", "{46FADF3A-CF0B-47FF-B896-BB6F931B9920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVendaUnitTests", "ApiControladorVendaUnitTests\ApiControladorVendaUnitTests.csproj", "{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControladorVenda.UnitTests", "ApiControladorVendaUnitTests\ApiControladorVenda.UnitTests.csproj", "{C176AAEB-B8D6-41CC-A31F-B6EDA3730936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

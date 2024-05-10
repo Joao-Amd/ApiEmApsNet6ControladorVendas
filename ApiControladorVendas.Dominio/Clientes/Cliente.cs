@@ -1,6 +1,4 @@
-﻿using ApiControladorVendas.Dominio.Vendas;
-
-namespace ApiControladorVendas.Dominio.Clientes
+﻿namespace ApiControladorVendas.Dominio.Clientes
 {
     public class Cliente 
     {
