@@ -32,7 +32,6 @@ namespace ApiControladorVendas.Repositorio.Configuracoes.Usuarios
             builder.Property(x => x.SenhaSalt)
                 .HasColumnName("senhasalt")
                 .IsRequired();
-
         }
     }
 }

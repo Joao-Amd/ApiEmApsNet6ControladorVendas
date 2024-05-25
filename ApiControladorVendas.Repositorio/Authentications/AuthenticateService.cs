@@ -1,6 +1,8 @@
 ﻿using ApiControladorVendas.Dominio.Account;
+using ApiControladorVendas.Dominio.AuthenticateService;
 using ApiControladorVendas.Dominio.Usuarios;
 using ApiControladorVendas.Repositorio.Contextos;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -51,8 +53,7 @@ namespace ApiControladorVendas.Repositorio.Authentications
 
             var credentials = new SigningCredentials(privateKey, SecurityAlgorithms.HmacSha256);
 
-            //var expiration = DateTime.UtcNow.AddHours(2);
-            var expiration = DateTime.UtcNow.AddMinutes(10);
+            var expiration = DateTime.UtcNow.AddHours(2);
 
             JwtSecurityToken token = new JwtSecurityToken(
                 issuer: _configuration["jwt:issuer"],
@@ -77,6 +78,57 @@ namespace ApiControladorVendas.Repositorio.Authentications
                 return false;
 
             return true;
+        }
+
+        public static byte[] GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomNumber);
+            return randomNumber;
+        }
+
+        public async Task<RefreshToken> CreateRefreshToken(int userId)
+        {
+            var refreshToken = new RefreshToken
+            {
+                Token = GenerateRefreshToken(),
+                UserId = userId,
+                Expires = DateTime.UtcNow.AddDays(7),
+                Created = DateTime.UtcNow
+            };
+
+            _context.RefreshToken.Add(refreshToken);
+            await _context.SaveChangesAsync();
+
+            return refreshToken;
+        }
+
+        public async Task<RefreshToken> GetRefreshToken(byte[] token)
+        {
+            return await _context.RefreshToken.FirstOrDefaultAsync(t => t.Token == token);
+        }
+
+        public async Task<bool> ValidateRefreshToken(byte[] token, int userId)
+        {
+            var refreshToken = await GetRefreshToken(token);
+
+            if (refreshToken == null || refreshToken.UserId != userId || !refreshToken.IsActive)
+                return false;
+
+            return true;
+        }
+
+        public async Task InvalidateRefreshToken(byte[] token)
+        {
+            var refreshToken = await GetRefreshToken(token);
+
+            if (refreshToken != null)
+            {
+                refreshToken.Revoked = DateTime.UtcNow;
+                _context.RefreshToken.Update(refreshToken);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

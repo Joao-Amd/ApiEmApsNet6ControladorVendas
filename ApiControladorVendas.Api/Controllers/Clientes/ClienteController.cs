@@ -1,10 +1,12 @@
-﻿using ApiControladorVendas.Aplicacao.Clientes.Dtos;
-using ApiControladorVendas.Clientes;
+﻿using ApiControladorVendas.Clientes;
+using ApiControladorVendas.Dominio.Clientes.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.Clientes
 {
     [Route("Cliente")]
+    [Authorize]
     public class ClienteController : Controller
     {
         private readonly IAplicCliente _aplicCliente;

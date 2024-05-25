@@ -1,6 +1,6 @@
-﻿using ApiControladorVendas.Aplicacao.ItemVendas.Dtos;
-using ApiControladorVendas.Aplicacao.ItemVendas.Views;
+﻿using ApiControladorVendas.Aplicacao.ItemVendas.Views;
 using ApiControladorVendas.Dominio.ItemVendas;
+using ApiControladorVendas.Dominio.ItemVendas.Dtos;
 using ApiControladorVendas.Dominio.Itens;
 using ApiControladorVendas.Dominio.Vendas;
 using ApiControladorVendas.Repositorio.RepCad;

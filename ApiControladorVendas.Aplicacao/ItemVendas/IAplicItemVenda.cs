@@ -1,6 +1,5 @@
-﻿using ApiControladorVendas.Aplicacao.ItemVendas.Dtos;
-using ApiControladorVendas.Aplicacao.ItemVendas.Views;
-using ApiControladorVendas.Dominio.Vendas;
+﻿using ApiControladorVendas.Aplicacao.ItemVendas.Views;
+using ApiControladorVendas.Dominio.ItemVendas.Dtos;
 
 namespace ApiControladorVendas.Aplicacao.ItemVendas
 {

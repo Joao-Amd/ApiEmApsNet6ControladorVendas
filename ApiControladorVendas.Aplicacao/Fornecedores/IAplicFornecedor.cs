@@ -1,5 +1,5 @@
-﻿using ApiControladorVendas.Aplicacao.Fornecedores.Dtos;
-using ApiControladorVendas.Aplicacao.Fornecedores.Views;
+﻿using ApiControladorVendas.Aplicacao.Fornecedores.Views;
+using ApiControladorVendas.Dominio.Fornecedores.Dtos;
 
 namespace ApiControladorVendas.Aplicacao.Fornecedores
 {

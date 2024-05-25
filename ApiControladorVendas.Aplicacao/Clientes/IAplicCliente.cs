@@ -1,5 +1,5 @@
-﻿using ApiControladorVendas.Aplicacao.Clientes.Dtos;
-using ApiControladorVendas.Aplicacao.Clientes.Views;
+﻿using ApiControladorVendas.Aplicacao.Clientes.Views;
+using ApiControladorVendas.Dominio.Clientes.Dtos;
 
 namespace ApiControladorVendas.Clientes
 {

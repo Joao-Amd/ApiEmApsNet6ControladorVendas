@@ -1,6 +1,6 @@
-﻿using ApiControladorVendas.Aplicacao.Fornecedores.Dtos;
-using ApiControladorVendas.Aplicacao.Fornecedores.Views;
+﻿using ApiControladorVendas.Aplicacao.Fornecedores.Views;
 using ApiControladorVendas.Dominio.Fornecedores;
+using ApiControladorVendas.Dominio.Fornecedores.Dtos;
 using ApiControladorVendas.Repositorio.RepCad;
 using ApiControladorVendas.Repositorio.UnitOfWork;
 

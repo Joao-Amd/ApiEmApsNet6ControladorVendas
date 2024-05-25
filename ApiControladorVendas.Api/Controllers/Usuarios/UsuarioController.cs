@@ -9,6 +9,7 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
 {
     [ApiController]
     [Route("Usuario")]
+    [Authorize]
     public class UsuarioController : Controller
     {
         private readonly IAuthenticate _authenticateService;
@@ -19,6 +20,7 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
             _aplicUsuario = aplicaUsuario;
         }
 
+        [AllowAnonymous]
         [HttpPost("Inserir")]
         public ActionResult<UserTokenViewModel> Inserir([FromBody] UsuarioDto dto)
         {
@@ -45,7 +47,7 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
             }
         }
 
-        [HttpGet("{Id}")]
+        [HttpGet("{Id:int}")]
         public IActionResult Recuperar(int id)
         {
             try
@@ -59,7 +61,7 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
                 return BadRequest(e.Message);
             }
         }
-        [Authorize]
+
         [HttpGet("Recuperar/Usuarios")]
         public IActionResult RecuperarUsuario()
         {
@@ -76,7 +78,6 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
 
         }
 
-
         [HttpDelete("{Id}")]
         public IActionResult Delete(int id)
         {
@@ -92,7 +93,6 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
             }
         }
 
-
         [HttpPut("Alterar")]
         public IActionResult Alterar(int id, [FromBody] UsuarioDto dto)
         {
@@ -107,17 +107,13 @@ namespace ApiControladorVendas.Api.Controllers.Usuarios
                 return BadRequest(e.Message);
             }
         }
-
+        
+        [AllowAnonymous]
         [HttpPost("Login")]
         public ActionResult<UserTokenViewModel> Login(LoginUsuarioDto dto)
         {
             try
             {
-                var emailExiste = _authenticateService.UserExists(dto.Email);
-
-                if(!emailExiste)
-                    throw new Exception("Este e-mail já possui um cadastro.");
-
                 var result = _authenticateService.Authenticate(dto.Email, dto.Senha);
 
                 if(!result)

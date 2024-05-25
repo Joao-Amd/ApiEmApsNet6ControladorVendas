@@ -1,7 +1,5 @@
-﻿using ApiControladorVendas.Aplicacao.Itens.Dtos;
-using ApiControladorVendas.Aplicacao.Itens.Views;
-using ApiControladorVendas.Aplicacao.Usuarios.Dtos;
-using ApiControladorVendas.Aplicacao.Usuarios.Views;
+﻿using ApiControladorVendas.Aplicacao.Itens.Views;
+using ApiControladorVendas.Dominio.Itens.Dtos;
 
 namespace ApiControladorVendas.Aplicacao.Itens
 {

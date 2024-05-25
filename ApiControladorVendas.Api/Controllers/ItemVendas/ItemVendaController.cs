@@ -1,10 +1,12 @@
 ﻿using ApiControladorVendas.Aplicacao.ItemVendas;
-using ApiControladorVendas.Aplicacao.ItemVendas.Dtos;
+using ApiControladorVendas.Dominio.ItemVendas.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.ItemVendas
 {
     [Route("ItemVenda")]
+    [Authorize]
     public class ItemVendaController : Controller
     {
         private readonly IAplicItemVenda _aplicItemVenda;

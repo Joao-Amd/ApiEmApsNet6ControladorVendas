@@ -1,3 +1,4 @@
+using ApiControladorVendas.Api.Extencoes.Token;
 using ApiControladorVendas.Aplicacao.Clientes;
 using ApiControladorVendas.Aplicacao.Fornecedores;
 using ApiControladorVendas.Aplicacao.ItemVendas;
@@ -151,12 +152,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseTokenVerification();
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 

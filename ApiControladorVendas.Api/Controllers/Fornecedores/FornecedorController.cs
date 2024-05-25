@@ -1,10 +1,12 @@
 ﻿using ApiControladorVendas.Aplicacao.Fornecedores;
-using ApiControladorVendas.Aplicacao.Fornecedores.Dtos;
+using ApiControladorVendas.Dominio.Fornecedores.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControladorVendas.Api.Controllers.Fornecedores
 {
     [Route("Fornecedor")]
+    [Authorize]
     public class FornecedorController : Controller
     {
 
