@@ -7,6 +7,7 @@ using ApiControladorVendas.Aplicacao.Usuarios;
 using ApiControladorVendas.Aplicacao.Vendas;
 using ApiControladorVendas.Clientes;
 using ApiControladorVendas.Dominio.Account;
+using ApiControladorVendas.Dominio.AuthenticateService;
 using ApiControladorVendas.Dominio.Clientes;
 using ApiControladorVendas.Dominio.Fornecedores;
 using ApiControladorVendas.Dominio.ItemVendas;
@@ -72,6 +73,8 @@ builder.Services.AddScoped<IRepCad<ItemVenda>, RepCad<ItemVenda>>();
 builder.Services.AddScoped<IRepCad<Item>, RepCad<Item>>();
 builder.Services.AddScoped<IRepCad<Usuario>, RepCad<Usuario>>();
 builder.Services.AddScoped<IRepCad<Venda>, RepCad<Venda>>();
+builder.Services.AddScoped<IAuthTokenRefresh, AuthTokenRefresh>();
+
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
